@@ -1,0 +1,1 @@
+INSERT INTO tb_product (name, price, description) VALUES ('Teste', 20, 'Teste');

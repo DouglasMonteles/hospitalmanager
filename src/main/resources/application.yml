@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/testedb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    show-sql: true
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+  h2:
+    console.enabled: true
+    console.path: /h2-console
+    console.settings.trace: false
+    spring.h2.console.settings.web-allow-others: false
