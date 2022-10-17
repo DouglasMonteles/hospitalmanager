@@ -8,23 +8,36 @@ public abstract class StageFactory {
 
     private static Stage STAGE;
 
-    public static void showStage(Routes route)  {
+    public static void showStageMaximized(Routes route) {
+        buildStage(route);
+        STAGE.setResizable(true);
+        STAGE.setMaximized(true);
+        show();
+    }
+
+    public static void showStageNotResizable(Routes route)  {
+        buildStage(route);
+        STAGE.setResizable(false);
+        show();
+    }
+
+    private static void buildStage(Routes route)  {
+        if (STAGE != null) {
+            STAGE.close();
+        }
+
+        STAGE = new Stage();
         STAGE.setTitle(route.getTitle());
+        
         try {
             STAGE.setScene(route.getScene());
-            STAGE.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static void showStageMaximized(Routes route)  {
-        STAGE.setMaximized(true);
-        showStage(route);
-    }
-
-    public static void setGlobalStage(Stage stage) {
-        StageFactory.STAGE = stage;
+    private static void show() {
+        StageFactory.STAGE.show();
     }
 
 }

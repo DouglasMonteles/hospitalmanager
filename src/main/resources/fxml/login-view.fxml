@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.doug.hospitalmanager.controllers.LoginController">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="308.0" style="-fx-background-color: #ccc;" />
+      <Pane prefHeight="400.0" prefWidth="407.0">
+         <children>
+            <MFXTextField fx:id="login" floatMode="BORDER" floatingText="Login" layoutX="29.0" layoutY="88.0" prefHeight="20.0" prefWidth="292.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </MFXTextField>
+            <MFXPasswordField fx:id="password" floatMode="BORDER" floatingText="Senha" layoutX="29.0" layoutY="155.0" prefHeight="37.0" prefWidth="292.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </MFXPasswordField>
+            <MFXButton layoutX="29.0" layoutY="239.0" onAction="#login" prefHeight="45.0" prefWidth="292.0" style="-fx-background-color: blue; -fx-text-fill: #fff;" text="Entrar" textAlignment="CENTER">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </MFXButton>
+         </children>
+      </Pane>
+   </children>
+</HBox>

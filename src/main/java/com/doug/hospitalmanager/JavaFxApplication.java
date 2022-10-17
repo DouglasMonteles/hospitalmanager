@@ -23,8 +23,7 @@ public class JavaFxApplication extends Application {
 
     @Override
     public void start(Stage stage) {
-        StageFactory.setGlobalStage(stage);
-        StageFactory.showStage(Routes.HOME);
+        StageFactory.showStageNotResizable(Routes.LOGIN);
     }
 
     @Override
