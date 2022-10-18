@@ -1,0 +1,4 @@
+.bg-login {
+    -fx-background-image: url("../images/login-bg.jpg");
+    -fx-background-size: 100% 100%;
+}

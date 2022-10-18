@@ -28,7 +28,7 @@ public abstract class StageFactory {
 
         STAGE = new Stage();
         STAGE.setTitle(route.getTitle());
-        
+
         try {
             STAGE.setScene(route.getScene());
         } catch (IOException e) {

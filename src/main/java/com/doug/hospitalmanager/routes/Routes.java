@@ -34,7 +34,7 @@ public enum Routes {
         }
     },
 
-    LOGIN (620, 420) {
+    LOGIN (720, 420) {
         @Override
         public String getTitle() {
             return "Login";
