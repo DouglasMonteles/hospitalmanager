@@ -1,21 +1,16 @@
 package com.doug.hospitalmanager.dialog;
 
-import javafx.scene.control.Alert;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+import com.doug.hospitalmanager.swing.SwingFactory;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
-import java.io.IOException;
 import java.util.Objects;
 
 public class ProgressiveDialog extends Thread {
 
-    private static final JDialog dialog = new JDialog();;
+    private static final String LOADING_ICON_PATH = "/images/loading.gif";
+
+    private static JDialog dialog;
     private static Thread thread;
 
     public static void show() {
@@ -24,13 +19,10 @@ public class ProgressiveDialog extends Thread {
         }
 
         thread = new Thread(() -> {
-            var loadingIcon = new ImageIcon(Objects.requireNonNull(ProgressiveDialog.class.getResource("/images/loading.gif")));
-            var label = new JLabel("Carregando...", loadingIcon, SwingConstants.CENTER);
+            var loadingIcon = SwingFactory.buildImageIcon(LOADING_ICON_PATH);
+            var label = SwingFactory.buildCenteredJLabelWithIcon("Carregando", loadingIcon);
 
-            dialog.setUndecorated(true);
-            dialog.setContentPane(label);
-            dialog.setSize(new Dimension(300, 300));
-            dialog.setLocationRelativeTo(null);
+            dialog = SwingFactory.buildLoadingJDialog(label);
             dialog.setVisible(true);
         });
 
