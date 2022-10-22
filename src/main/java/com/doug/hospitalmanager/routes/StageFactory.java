@@ -30,7 +30,7 @@ public abstract class StageFactory {
         STAGE.setTitle(route.getTitle());
 
         try {
-            STAGE.setScene(route.getScene());
+            STAGE.setScene(route.buildScene());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

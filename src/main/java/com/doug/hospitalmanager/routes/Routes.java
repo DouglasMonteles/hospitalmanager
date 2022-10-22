@@ -27,7 +27,7 @@ public enum Routes {
         }
 
         @Override
-        public Scene getScene() throws IOException {
+        public Scene buildScene() throws IOException {
             var fxmlLoader = getResource();
             fxmlLoader.setControllerFactory(param -> ControllerFactory.HOME);
             return new Scene(fxmlLoader.load(), HOME.width, HOME.height);
@@ -46,7 +46,7 @@ public enum Routes {
         }
 
         @Override
-        public Scene getScene() throws IOException {
+        public Scene buildScene() throws IOException {
             var fxmlLoader = getResource();
             fxmlLoader.setControllerFactory(param -> ControllerFactory.LOGIN);
             return new Scene(fxmlLoader.load(), LOGIN.width, LOGIN.height);
@@ -67,6 +67,6 @@ public enum Routes {
 
     public abstract FXMLLoader getResource();
 
-    public abstract Scene getScene() throws IOException;
+    public abstract Scene buildScene() throws IOException;
 
 }
