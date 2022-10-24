@@ -15,7 +15,7 @@
           <Menu mnemonicParsing="false" text="Usuarios">
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#listUsers" text="Listar" />
-                  <MenuItem mnemonicParsing="false" text="Cadastrar" />
+                  <MenuItem mnemonicParsing="false" onAction="#insertUser" text="Cadastrar" />
                   <MenuItem mnemonicParsing="false" text="Alterar" />
                   <MenuItem mnemonicParsing="false" text="Excluir" />
             </items>

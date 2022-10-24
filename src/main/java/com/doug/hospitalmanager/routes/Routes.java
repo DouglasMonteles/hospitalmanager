@@ -1,20 +1,25 @@
 package com.doug.hospitalmanager.routes;
 
-import com.doug.hospitalmanager.controllers.HomeController;
-import com.doug.hospitalmanager.controllers.LoginController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public enum Routes {
 
     HOME (620, 540) {
-        @Autowired
-        private HomeController homeController;
+        private Stage stage;
+
+        @Override
+        public Stage getStage() {
+            return stage;
+        }
+
+        @Override
+        public void setStage(Stage stage) {
+            this.stage = stage;
+        }
 
         @Override
         public String getTitle() {
@@ -35,6 +40,18 @@ public enum Routes {
     },
 
     LOGIN (720, 420) {
+        private Stage stage;
+
+        @Override
+        public Stage getStage() {
+            return stage;
+        }
+
+        @Override
+        public void setStage(Stage stage) {
+            this.stage = stage;
+        }
+
         @Override
         public String getTitle() {
             return "Login";
@@ -50,6 +67,37 @@ public enum Routes {
             var fxmlLoader = getResource();
             fxmlLoader.setControllerFactory(param -> ControllerFactory.LOGIN);
             return new Scene(fxmlLoader.load(), LOGIN.width, LOGIN.height);
+        }
+    },
+
+    INSERT_USER (720, 420) {
+        private Stage stage;
+
+        @Override
+        public Stage getStage() {
+            return stage;
+        }
+
+        @Override
+        public void setStage(Stage stage) {
+            this.stage = stage;
+        }
+
+        @Override
+        public String getTitle() {
+            return "Cadastro de Usuário";
+        }
+
+        @Override
+        public FXMLLoader getResource() {
+            return new FXMLLoader(Routes.class.getResource("/fxml/forms/user-registration.fxml"));
+        }
+
+        @Override
+        public Scene buildScene() throws IOException {
+            var fxmlLoader = getResource();
+            fxmlLoader.setControllerFactory(param -> ControllerFactory.USER);
+            return new Scene(fxmlLoader.load(), INSERT_USER.width, INSERT_USER.height);
         }
     };
 
@@ -68,5 +116,9 @@ public enum Routes {
     public abstract FXMLLoader getResource();
 
     public abstract Scene buildScene() throws IOException;
+
+    public abstract Stage getStage();
+
+    public abstract void setStage(Stage stage);
 
 }

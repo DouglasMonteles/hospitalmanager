@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "tb_user")
@@ -35,6 +35,7 @@ public class User implements Serializable {
     private String password;
 
     @Column(nullable = false)
+    @Accessors(fluent = true, chain = false)
     private Boolean isActive;
 
 }

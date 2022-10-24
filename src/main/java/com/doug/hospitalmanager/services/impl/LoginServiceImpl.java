@@ -19,6 +19,10 @@ public class LoginServiceImpl implements LoginService {
             throw new UserNotFoundException(String.format("Usuário %s não encontrado!", email));
         }
 
+        if (!user.isActive()) {
+            throw new UserNotFoundException("Este usuário está inativo!");
+        }
+
         if (!user.getPassword().equals(password)) {
             throw new UserNotFoundException("Nenhum usuário com a senha informada foi encontrado!");
         }

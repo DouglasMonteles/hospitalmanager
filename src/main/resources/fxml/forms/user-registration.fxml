@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXCheckbox?>
+<?import io.github.palexdev.materialfx.controls.MFXDatePicker?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.doug.hospitalmanager.controllers.UserController">
+   <children>
+      <MFXTextField fx:id="name" floatMode="BORDER" floatingText="Nome Completo" layoutX="20.0" layoutY="58.0" prefHeight="45.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="276.0" AnchorPane.topAnchor="58.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </MFXTextField>
+      <MFXButton fx:id="btnInsertUser" layoutX="214.0" layoutY="299.0" onAction="#save" prefHeight="40.0" prefWidth="172.0" rippleAnimateShadow="true" style="-fx-background-color: blue; -fx-text-fill: #fff;" text="Cadastrar usuario" viewOrder="4.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="214.0" AnchorPane.rightAnchor="214.0" AnchorPane.topAnchor="299.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </MFXButton>
+      <MFXTextField fx:id="email" floatMode="BORDER" floatingText="E-mail" layoutX="20.0" layoutY="148.0" prefHeight="45.0" prefWidth="300.0" viewOrder="2.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="276.0" AnchorPane.topAnchor="148.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </MFXTextField>
+      <MFXDatePicker fx:id="birthDate" floatMode="BORDER" floatingText="Data de Nascimento" layoutX="344.0" layoutY="58.0" prefHeight="45.0" prefWidth="235.0" viewOrder="1.0" AnchorPane.rightAnchor="20.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </MFXDatePicker>
+      <MFXPasswordField fx:id="password" floatMode="BORDER" floatingText="Senha" layoutX="344.0" layoutY="142.0" prefHeight="51.0" prefWidth="235.0" viewOrder="3.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="142.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </MFXPasswordField>
+      <MFXCheckbox fx:id="status" layoutX="470.0" layoutY="229.0" selected="true" text="Usuario Ativo" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="229.0" />
+   </children>
+</AnchorPane>

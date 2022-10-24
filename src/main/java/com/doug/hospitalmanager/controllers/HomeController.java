@@ -2,6 +2,8 @@ package com.doug.hospitalmanager.controllers;
 
 import com.doug.hospitalmanager.components.UserTableComponent;
 import com.doug.hospitalmanager.models.User;
+import com.doug.hospitalmanager.routes.Routes;
+import com.doug.hospitalmanager.routes.StageFactory;
 import com.doug.hospitalmanager.services.UserService;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -14,6 +16,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,24 +38,6 @@ public class HomeController implements Initializable {
     @FXML
     private BorderPane borderPane;
 
-    @FXML
-    private TableView<User> userTable;
-
-    @FXML
-    private TableColumn<User, Date> birthDateColumn;
-
-    @FXML
-    private TableColumn<User, String> emailColumn;
-
-    @FXML
-    private TableColumn<User, Long> idColumn;
-
-    @FXML
-    private TableColumn<User, String> nameColumn;
-
-    @FXML
-    private TableColumn<User, Boolean> statusColumn;
-
     @Autowired
     private UserService userService;
 
@@ -67,6 +52,11 @@ public class HomeController implements Initializable {
         var table = new UserTableComponent().build(users);
 
         borderPane.setCenter(table);
+    }
+
+    @FXML
+    void insertUser(ActionEvent event) throws IOException {
+        StageFactory.showIndependentStage(Routes.INSERT_USER);
     }
 
 }
